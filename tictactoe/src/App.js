@@ -1,5 +1,51 @@
 import { useState } from "react";
 
+export default function Game() {
+  const [xIsNext, setXIsNext] = useState(true);
+  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const currentSquares = history[currentMove];
+  function handlePlay(nextSquares) {
+    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+    setHistory(nextHistory);
+    setCurrentMove(nextHistory.length - 1);
+    setXIsNext(!xIsNext);
+  }
+  function jumpTo(nextMove) {
+    setCurrentMove(nextMove);
+    setXIsNext(nextMove % 2 === 0);
+  }
+
+  let moves = history.map((move) => {
+    let description;
+    if (move > 0) {
+      description = "Jump to #" + move;
+    } else {
+      description = "Go to game start";
+    }
+    return (
+      <li>
+        <button
+          onClick={() => {
+            jumpTo(move);
+          }}
+        >
+          {description}
+        </button>
+      </li>
+    );
+  });
+  return (
+    <div className="game">
+      <div className="game-board">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </div>
+      <div className="game-info">
+        <ol>{moves}</ol>
+      </div>
+    </div>
+  );
+}
+
 function Square({ value, onSquareClick }) {
   return (
     <button className="square" onClick={onSquareClick}>
@@ -8,9 +54,7 @@ function Square({ value, onSquareClick }) {
   );
 }
 
-export default function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+function Board(xIsNext, squares, onPlay) {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
@@ -19,16 +63,16 @@ export default function Board() {
     status = "Next move: " + (xIsNext ? "X" : "O");
   }
   function handleClick(i) {
-    const nextSquare = squares.slice();
+    const nextSquares = squares.slice();
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
     if (xIsNext) {
-      nextSquare[i] = "X";
+      nextSquares[i] = "X";
     } else {
-      nextSquare[i] = "O";
+      nextSquares[i] = "O";
     }
-    setSquares(nextSquare);
+    onPlay(nextSquares);
   }
   return (
     <>
