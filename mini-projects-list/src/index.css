@@ -32,12 +32,31 @@ h1 {
 }
 
 .project-card {
+  position: relative;
   height: 250px;
   padding: 20px;
   margin: 20px 15px;
   border-radius: 12px;
   background: #fff;
   overflow: scroll;
+}
+
+.cursor-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #ff4500;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: left 0.02s linear, top 0.02s linear;
+  z-index: 10;
+}
+
+.card--highlight {
+  outline: 3px solid #ffa500;
+  outline-offset: 4px;
+  transition: outline 0.2s ease-in-out;
 }
 
 .project-title {
@@ -66,9 +85,4 @@ h1 {
 .feature {
   font-size: 18px;
   padding: 10px 0;
-}
-
-.finish-checkbox {
-  display: block;
-  margin-top: auto;
 }
