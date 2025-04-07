@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { list } from "../data/data";
 import { ListItem } from "./ListItem";
 
-export function PlanningList({ handleClick }) {
-  const [isItemHovered, setIsItemHovered] = useState(false);
+export function PlanningList({ list }) {
   function showList(l) {
     return (
       <ul>

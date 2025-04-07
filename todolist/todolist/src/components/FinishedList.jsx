@@ -1,7 +1,6 @@
-import { list } from "../data/data";
 import { ListItem } from "./ListItem";
 
-export function FinishedList({ handleClick }) {
+export function FinishedList({ list }) {
   let finishedList = list.filter((e) => e.status === "finished");
 
   function showList(l) {

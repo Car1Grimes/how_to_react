@@ -1,7 +1,6 @@
-import { list } from "../data/data";
 import { ListItem } from "./ListItem";
 
-export function OngoingList({ handleClick }) {
+export function OngoingList({ list }) {
   let ongoingList = list.filter((e) => e.status === "ongoing");
 
   function showList(l) {
