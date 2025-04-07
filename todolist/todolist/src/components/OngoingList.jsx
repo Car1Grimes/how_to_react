@@ -1,17 +1,14 @@
 import { list } from "../data/data";
+import { ListItem } from "./ListItem";
 
-export function OngoingList() {
+export function OngoingList({ handleClick }) {
   let ongoingList = list.filter((e) => e.status === "ongoing");
 
   function showList(l) {
     return (
       <ul>
         {l.map((e) => {
-          return (
-            <li key={e.id} className="list-element">
-              {e.name}
-            </li>
-          );
+          return <ListItem entry={e} />;
         })}
       </ul>
     );

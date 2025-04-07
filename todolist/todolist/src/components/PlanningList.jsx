@@ -1,15 +1,14 @@
+import { useState } from "react";
 import { list } from "../data/data";
+import { ListItem } from "./ListItem";
 
-export function PlanningList() {
+export function PlanningList({ handleClick }) {
+  const [isItemHovered, setIsItemHovered] = useState(false);
   function showList(l) {
     return (
       <ul>
         {l.map((el) => {
-          return (
-            <li key={el.id} className="list-element">
-              {el.name}
-            </li>
-          );
+          return <ListItem entry={el} />;
         })}
       </ul>
     );

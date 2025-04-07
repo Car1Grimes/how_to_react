@@ -9,6 +9,8 @@ import { PlanningList } from "./components/PlanningList";
 import { OngoingList } from "./components/OngoingList";
 import { FinishedList } from "./components/FinishedList";
 export function App() {
+  const [isItemClicked, setIsItemClicked] = useState(false);
+  function handleClick() {}
   return (
     <main>
       <Header>
@@ -29,9 +31,9 @@ export function App() {
               <h2>Sidebar</h2>
             </section>
             <section className="todolist col col-8">
-              <PlanningList />
-              <OngoingList />
-              <FinishedList />
+              <PlanningList handleClick={handleClick} />
+              <OngoingList handleClick={handleClick} />
+              <FinishedList handleClick={handleClick} />
             </section>
             <section className="sidebar col col-2">
               <h2>Stats</h2>

@@ -1,17 +1,14 @@
 import { list } from "../data/data";
+import { ListItem } from "./ListItem";
 
-export function FinishedList() {
+export function FinishedList({ handleClick }) {
   let finishedList = list.filter((e) => e.status === "finished");
 
   function showList(l) {
     return (
       <ul>
         {l.map((e) => {
-          return (
-            <li key={e.id} className="list-element">
-              {e.name}
-            </li>
-          );
+          return <ListItem entry={e} />;
         })}
       </ul>
     );

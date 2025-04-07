@@ -81,9 +81,10 @@ html {
 .ongoing,
 .finished {
   width: 33.33%;
-  padding: 30px 0;
+  padding: 30px 0 0;
   border: 1px solid #ccc;
   margin: 15px 0;
+  overflow: hidden;
 }
 
 .planning {
@@ -114,6 +115,7 @@ html {
 .list-element {
   font-size: 1.8rem;
   padding: 10px;
+  border-bottom: 1px solid #ccc;
   text-align: start;
   transition: all 0.3s ease;
 }
@@ -121,4 +123,64 @@ html {
 .list-element:hover {
   cursor: pointer;
   background: #e3e3e3;
+}
+
+.item__detail {
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.item__operations {
+  display: flex;
+  gap: 20px;
+  margin-top: 8px;
+}
+/* General Button Style */
+.item-btn {
+  padding: 8px 14px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Edit Button */
+.item__edit-btn {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.item__edit-btn:hover {
+  background-color: #45a049;
+  border-color: #388e3c;
+}
+
+/* Delete Button */
+.item__delete-btn {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.item__delete-btn:hover {
+  background-color: #e53935;
+  border-color: #d32f2f;
+}
+
+/* FontAwesome Icon inside delete button */
+.item__delete-btn svg {
+  margin-left: 8px; /* Space between text and icon */
+  transition: transform 0.3s ease;
+}
+
+.item__delete-btn:hover svg {
+  transform: scale(1.2); /* Slightly enlarges the icon on hover */
+}
+
+.item__title--highlight {
+  color: #8b4513;
+  font-weight: 600;
 }
