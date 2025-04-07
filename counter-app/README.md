@@ -7,29 +7,25 @@ This is a simple and interactive **React Counter App** that allows users to mani
 ## 🚀 Features
 
 ### ➕ Increment / ➖ Decrement Counter
+
 - Click the **"+"** or **"–"** buttons to increase or decrease the count by 1.
 - Counter value updates instantly.
 
 ### 🔄 Reset Counter
+
 - Click the **"Reset"** button to bring the counter back to **zero**.
 - Reset button is styled to stand out for quick access.
 
 ### 🔢 Custom Start Value
+
 - Users can input a **custom number** to initialize the counter.
 - Useful if you want to start from a non-zero value.
-
-### ⏱️ Auto-Incrementing Mode
-Enable auto-incrementing by selecting:
-- **Start**: Begin auto-incrementing.
-- **Stop**: Pause the automatic counting.
-- **Speed**: Choose the interval speed (e.g., 1s, 0.5s, etc.).
-- Useful for demonstrations or passive counting.
 
 ---
 
 ## 🖼️ Preview
 
-![Counter App Screenshot]()  
+![Counter App Screenshot]()
 
 ---
 
@@ -38,4 +34,3 @@ Enable auto-incrementing by selecting:
 - **React** (with hooks)
 - **Plain CSS** for styling
 - No external libraries or state management
-

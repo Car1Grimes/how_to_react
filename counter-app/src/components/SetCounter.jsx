@@ -42,7 +42,7 @@ export function SetCounter({
           />
         </div>
       ) : (
-        <button className="btn" onClick={handleClickSetter}>
+        <button className="btn counter-click-btn" onClick={handleClickSetter}>
           Set counter
         </button>
       )}

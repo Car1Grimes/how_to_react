@@ -107,7 +107,12 @@ body {
   border-color: #4cd964;
 }
 
+.counter-click-btn {
+  margin: 20px 0;
+}
+
 .counter-set-btn {
+  margin: 20px 0;
   background-color: #4cd964;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
