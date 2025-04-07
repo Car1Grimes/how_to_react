@@ -110,3 +110,15 @@ html {
 .finished .category-title {
   color: #666;
 }
+
+.list-element {
+  font-size: 1.8rem;
+  padding: 10px;
+  text-align: start;
+  transition: all 0.3s ease;
+}
+
+.list-element:hover {
+  cursor: pointer;
+  background: #e3e3e3;
+}
