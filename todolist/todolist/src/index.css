@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 62.5%;
+}
+
+.header {
+  padding: 20px 0;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.header a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 10px 8px;
+  cursor: pointer;
+  color: blue;
+}
+
+.header a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #f9d342; /* choose your outline/underline color */
+  transition: width 0.3s ease-in-out;
+}
+
+.header a:hover::after {
+  width: 100%;
+}
+
+.navbar {
+  width: 85%;
+  margin: 0 auto;
+}
+.navbar,
+.navigations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
