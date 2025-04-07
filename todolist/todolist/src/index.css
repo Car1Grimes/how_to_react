@@ -7,6 +7,10 @@ html {
   font-size: 62.5%;
 }
 
+.row {
+  justify-content: space-between;
+}
+
 .header {
   padding: 20px 0;
   border: 1px solid #ccc;
@@ -47,4 +51,62 @@ html {
   justify-content: space-between;
   align-items: center;
   gap: 25px;
+}
+
+.content {
+  padding: 100px 0;
+}
+
+.todolist {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.sidebar {
+  border: 1px solid #ccc;
+  font-size: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.category-title {
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 2.3rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.planning,
+.ongoing,
+.finished {
+  width: 33.33%;
+  padding: 30px 0;
+  border: 1px solid #ccc;
+  margin: 15px 0;
+}
+
+.planning {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.finished {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.planning,
+.ongoing {
+  border-right: 1px solid #ccc;
+}
+
+.planning .category-title {
+  color: lightgreen;
+}
+.ongoing .category-title {
+  color: #ff2c2c;
+}
+.finished .category-title {
+  color: #666;
 }
