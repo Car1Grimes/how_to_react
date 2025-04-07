@@ -1,12 +1,41 @@
-# React + Vite
+# 🧮 React Counter App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple and interactive **React Counter App** that allows users to manipulate a numeric counter with several useful features. Built for learning and experimenting with React concepts like state, event handling, and conditional rendering.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### ➕ Increment / ➖ Decrement Counter
+- Click the **"+"** or **"–"** buttons to increase or decrease the count by 1.
+- Counter value updates instantly.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔄 Reset Counter
+- Click the **"Reset"** button to bring the counter back to **zero**.
+- Reset button is styled to stand out for quick access.
+
+### 🔢 Custom Start Value
+- Users can input a **custom number** to initialize the counter.
+- Useful if you want to start from a non-zero value.
+
+### ⏱️ Auto-Incrementing Mode
+Enable auto-incrementing by selecting:
+- **Start**: Begin auto-incrementing.
+- **Stop**: Pause the automatic counting.
+- **Speed**: Choose the interval speed (e.g., 1s, 0.5s, etc.).
+- Useful for demonstrations or passive counting.
+
+---
+
+## 🖼️ Preview
+
+![Counter App Screenshot]()  
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** (with hooks)
+- **Plain CSS** for styling
+- No external libraries or state management
+
