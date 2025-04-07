@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Sidebar } from "./components/Sidebar";
 
 export default function App() {
   const [counter, setCounter] = useState(0);
@@ -44,46 +45,20 @@ export default function App() {
             </button>
           </section>
           <div>
-            {isOnSet ? (
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1rem",
-                  justifyContent: "center",
-                  marginTop: "2rem",
-                }}
-              >
-                <input
-                  className="counter-input"
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                />
-                <input
-                  className="btn counter-set-btn"
-                  type="submit"
-                  value="Set"
-                  onClick={() => {
-                    if (isNaN(inputValue) || inputValue === null) {
-                      setCounter(counter);
-                    } else {
-                      setCounter(Number(inputValue));
-                    }
-                    setIsOnSet(false);
-                  }}
-                />
-              </div>
-            ) : (
-              <button className="btn" onClick={handleClickSetter}>
-                Set counter
-              </button>
-            )}
             <button className="btn btn--red" onClick={handleReset}>
               Reset
             </button>
           </div>
         </div>
+        <Sidebar
+          isOnSet={isOnSet}
+          setIsOnSet={setIsOnSet}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          counter={counter}
+          setCounter={setCounter}
+          handleClickSetter={handleClickSetter}
+        />
       </div>
     </>
   );

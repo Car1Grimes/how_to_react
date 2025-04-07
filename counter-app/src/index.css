@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+#root {
+  flex-grow: 1;
+}
+
 html {
   font-size: 62.5%;
   font-family: "Courier New", Courier, monospace;
@@ -12,6 +16,12 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -109,4 +119,19 @@ body {
 
 .counter-set-btn:active {
   transform: scale(0.95);
+}
+
+.sidebar {
+  position: fixed;
+  top: 200px;
+  right: 0;
+  padding: 50px 50px;
+  border-left: 2px solid #3a3a3c;
+  border-top: 2px solid #3a3a3c;
+  border-bottom: 2px solid #3a3a3c;
+}
+
+.sidebar__title {
+  font-size: 3rem;
+  color: #fff;
 }
