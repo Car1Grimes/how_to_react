@@ -8,24 +8,17 @@ import { Container } from "./components/Container";
 import { PlanningList } from "./components/PlanningList";
 import { OngoingList } from "./components/OngoingList";
 import { FinishedList } from "./components/FinishedList";
+import { CreateForm } from "./components/CreateForm";
 import { list } from "./data/data";
 export function App() {
   const [isCreateClicked, setIsCreateClicked] = useState(false);
-  const [taskName, setTaskName] = useState("");
-  const [date, setDate] = useState("");
+
   const [newList, setNewList] = useState(list);
 
   function handleCreate() {
     setIsCreateClicked(true);
   }
 
-  function handleNameChange(e) {
-    setTaskName(e.target.value);
-  }
-
-  function handleDateChange(e) {
-    setDate(e.target.value);
-  }
   return (
     <main>
       <Header>
@@ -60,75 +53,11 @@ export function App() {
                 + New todo
               </button>
               {isCreateClicked && (
-                <form
-                  style={{
-                    padding: "10px",
-                    margin: "6px",
-                    border: "1px solid #ccc",
-                    borderRadius: "6px",
-                  }}
-                >
-                  <label
-                    className="form__label"
-                    style={{
-                      padding: "8px 0",
-                    }}
-                  >
-                    Id:
-                  </label>
-                  <div className="form__group">
-                    <label className="form__label" for="name">
-                      Task name:{" "}
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      style={{
-                        padding: "10px",
-                        width: "50%",
-                      }}
-                      onChange={handleNameChange}
-                    />
-                  </div>
-                  <div className="form__group">
-                    <label className="form__label" for="date">
-                      Task due date:{" "}
-                    </label>
-                    <input
-                      type="date"
-                      id="date"
-                      name="date"
-                      style={{
-                        padding: "10px",
-                        width: "50%",
-                      }}
-                      onChange={handleDateChange}
-                    />
-                  </div>
-                  <input
-                    type="submit"
-                    value="Add"
-                    style={{
-                      padding: "10px 12px",
-                      border: "1px solid #ccc",
-                      borderRadius: "6px",
-                      background: "lightgreen",
-                      cursor: "pointer",
-                    }}
-                    onClick={(taskName, date) => {
-                      setNewList(
-                        newList.push({
-                          id: crypto.randomUUID,
-                          name: { taskName },
-                          dueDate: { date },
-                          status: "planning",
-                        })
-                      );
-                      setIsCreateClicked(false);
-                    }}
-                  />
-                </form>
+                <CreateForm
+                  newList={newList}
+                  setNewList={setNewList}
+                  setIsCreateClicked={setIsCreateClicked}
+                />
               )}
             </div>
           </div>
