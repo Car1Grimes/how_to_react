@@ -2,6 +2,8 @@ import { useState } from "react";
 
 export default function App() {
   const [counter, setCounter] = useState(0);
+  const [isOnSet, setIsOnSet] = useState(false);
+  const [inputValue, setInputValue] = useState(0);
 
   function handleDecrease() {
     if (counter === 0) {
@@ -12,6 +14,10 @@ export default function App() {
 
   function handleIncrease() {
     setCounter(counter + 1);
+  }
+
+  function handleClickSetter() {
+    setIsOnSet(true);
   }
 
   function handleReset() {
@@ -38,7 +44,42 @@ export default function App() {
             </button>
           </section>
           <div>
-            <button className="btn--red" onClick={handleReset}>
+            {isOnSet ? (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1rem",
+                  justifyContent: "center",
+                  marginTop: "2rem",
+                }}
+              >
+                <input
+                  className="counter-input"
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                />
+                <input
+                  className="btn counter-set-btn"
+                  type="submit"
+                  value="Set"
+                  onClick={() => {
+                    if (isNaN(inputValue) || inputValue === null) {
+                      setCounter(counter);
+                    } else {
+                      setCounter(Number(inputValue));
+                    }
+                    setIsOnSet(false);
+                  }}
+                />
+              </div>
+            ) : (
+              <button className="btn" onClick={handleClickSetter}>
+                Set counter
+              </button>
+            )}
+            <button className="btn btn--red" onClick={handleReset}>
               Reset
             </button>
           </div>

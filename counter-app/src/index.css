@@ -54,15 +54,16 @@ body {
 
 .btn--red {
   background-color: #e74c3c;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 1.6rem;
   font-weight: 600;
-  cursor: pointer;
   box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
   transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+  background-color: #005bb5;
 }
 
 .btn--red:hover {
@@ -74,11 +75,38 @@ body {
   background-color: #a93226;
   transform: scale(0.97);
 }
-.btn:hover {
-  background-color: #005bb5;
-}
 
 .title {
   font-size: 4rem;
   color: #fff;
+}
+
+.counter-input {
+  padding: 0.8rem 1.2rem;
+  font-size: 1.6rem;
+  border: 2px solid #555;
+  border-radius: 8px;
+  background-color: #1e1e1f;
+  color: #f1f1f1;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin-right: 1rem;
+}
+
+.counter-input:focus {
+  border-color: #4cd964;
+}
+
+.counter-set-btn {
+  background-color: #4cd964;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.counter-set-btn:hover {
+  background-color: #3dc854;
+  transform: scale(1.05);
+}
+
+.counter-set-btn:active {
+  transform: scale(0.95);
 }
