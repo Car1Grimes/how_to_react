@@ -7,6 +7,10 @@ html {
   font-size: 62.5%;
 }
 
+:root {
+  --primary-text-color: #8b4513;
+}
+
 .row {
   justify-content: space-between;
 }
@@ -171,17 +175,18 @@ html {
 }
 
 /* FontAwesome Icon inside delete button */
-.item__delete-btn svg {
+.item-btn svg {
   margin-left: 8px; /* Space between text and icon */
   transition: transform 0.3s ease;
 }
 
-.item__delete-btn:hover svg {
+.item-btn:hover svg {
   transform: scale(1.2); /* Slightly enlarges the icon on hover */
 }
 
 .item__title--highlight {
-  color: #8b4513;
+  padding: 8px 0;
+  color: var(--primary-text-color);
   font-weight: 600;
 }
 
@@ -207,4 +212,39 @@ html {
 
 .form__label {
   font-size: 1.6rem;
+}
+
+.add-btn {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: lightgreen;
+  cursor: pointer;
+}
+
+.add-item-form {
+  padding: 10px;
+  margin: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.input-date,
+.input-text {
+  padding: 10px;
+  width: 50%;
+  border: 1px solid #ccc;
+}
+
+.edit-form__group > * {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.edit-form__input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: var(--primary-text-color);
 }

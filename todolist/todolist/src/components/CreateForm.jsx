@@ -11,15 +11,23 @@ export function CreateForm({ newList, setNewList, setIsCreateClicked }) {
   function handleDateChange(e) {
     setDate(e.target.value);
   }
+
+  function checkValidInput() {
+    if (taskName === "" || taskName === null || date === "" || date === null) {
+      return;
+    }
+    setNewList([
+      {
+        id: crypto.randomUUID(),
+        name: taskName,
+        dueDate: date,
+        status: "planning",
+      },
+      ...newList,
+    ]);
+  }
   return (
-    <form
-      style={{
-        padding: "10px",
-        margin: "6px",
-        border: "1px solid #ccc",
-        borderRadius: "6px",
-      }}
-    >
+    <form className="add-item-form">
       <label
         className="form__label"
         style={{
@@ -33,13 +41,10 @@ export function CreateForm({ newList, setNewList, setIsCreateClicked }) {
           Task name:{" "}
         </label>
         <input
+          className="input-text"
           type="text"
           id="name"
           name="name"
-          style={{
-            padding: "10px",
-            width: "50%",
-          }}
           onChange={handleNameChange}
         />
       </div>
@@ -48,37 +53,20 @@ export function CreateForm({ newList, setNewList, setIsCreateClicked }) {
           Task due date:{" "}
         </label>
         <input
+          className="input-date"
           type="date"
           id="date"
           name="date"
-          style={{
-            padding: "10px",
-            width: "50%",
-          }}
           onChange={handleDateChange}
         />
       </div>
       <input
+        className="add-btn"
         type="submit"
         value="Add"
-        style={{
-          padding: "10px 12px",
-          border: "1px solid #ccc",
-          borderRadius: "6px",
-          background: "lightgreen",
-          cursor: "pointer",
-        }}
         onClick={(e) => {
           e.preventDefault();
-          setNewList([
-            {
-              id: crypto.randomUUID(),
-              name: taskName,
-              dueDate: date,
-              status: "planning",
-            },
-            ...newList,
-          ]);
+          checkValidInput();
           setIsCreateClicked(false);
         }}
       />

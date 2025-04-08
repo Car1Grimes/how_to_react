@@ -12,8 +12,11 @@ export function ListItem({ entry }) {
   }
   return (
     <li key={entry.id} className="list-element" onClick={handleClick}>
-      <h4 className={itemTitleClassName}>{entry.name}</h4>
-      {showDetail && <ItemDetail item={entry} />}
+      {showDetail ? (
+        <ItemDetail item={entry} itemTitleClassName={itemTitleClassName} />
+      ) : (
+        <h4 className={itemTitleClassName}>{entry.name}</h4>
+      )}
     </li>
   );
 }

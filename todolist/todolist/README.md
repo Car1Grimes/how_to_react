@@ -12,13 +12,6 @@ A simple and interactive To-Do List web application built with **React**. This p
 - **Mark as Completed**: Click to toggle the completed status (visual feedback with strike-through).
 - **Delete Task**: Remove a task from the list.
 
-### 🔍 Filtering Tasks
-
-- View tasks based on their **status**:
-  - All
-  - Active (not completed)
-  - Completed
-
 ### 🧹 Clear Completed Tasks
 
 - One-click button to delete all tasks marked as completed.
