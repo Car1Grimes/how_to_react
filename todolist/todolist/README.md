@@ -16,7 +16,7 @@ A simple and interactive To-Do List web application built with **React**. This p
 
 - One-click button to delete all tasks marked as completed.
 
-### 📊 Task Count
+### 📊 Task Count (Future Improvement)
 
 - Displays the number of tasks remaining (active tasks left).
 
@@ -30,7 +30,7 @@ A simple and interactive To-Do List web application built with **React**. This p
 - Optionally set a **due date** for each task.
 - Can be displayed alongside the task name.
 
-### 💾 Persistent Storage
+### 💾 Persistent Storage (Future Improvement)
 
 - Tasks are stored in `localStorage` so they **persist between sessions**.
 
@@ -56,7 +56,9 @@ A simple and interactive To-Do List web application built with **React**. This p
 
 ## 📸 Demo
 
-Coming soon...
+![Demo Screenshot 1](./public/demo1.png)
+![Demo Screenshot 2](./public/demo2.png)
+![Demo Screenshot 3](./public/demo3.png)
 
 ---
 
