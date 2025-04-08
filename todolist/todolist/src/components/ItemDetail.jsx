@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 
-export function ItemDetail({ item, itemTitleClassName }) {
+export function ItemDetail({ item, itemTitleClassName, onDeleteItem }) {
   const [onEdit, setOnEdit] = useState(false);
   const [newTaskName, setNewTaskName] = useState(item.name);
   const [newDueDate, setNewDueDate] = useState(item.dueDate);
@@ -35,7 +35,13 @@ export function ItemDetail({ item, itemTitleClassName }) {
           <p className="item__due-date">Due date: {newDueDate}</p>
         </>
       )}
-      {!onEdit && <ItemOperations handleEditClick={handleEditClick} />}
+      {!onEdit && (
+        <ItemOperations
+          item={item}
+          handleEditClick={handleEditClick}
+          onDeleteItem={onDeleteItem}
+        />
+      )}
     </div>
   );
 }
@@ -93,6 +99,7 @@ export function ItemOperations({
   handleEditClick,
   resetName,
   resetDate,
+  onDeleteItem,
   isOnEdit = false,
 }) {
   return (
@@ -118,6 +125,7 @@ export function ItemOperations({
             resetDate(item.dueDate);
             handleEditClick();
           } else {
+            onDeleteItem(item.id);
           }
         }}
       >

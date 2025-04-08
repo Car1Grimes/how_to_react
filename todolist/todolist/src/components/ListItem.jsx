@@ -1,19 +1,24 @@
-import { useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 
-export function ListItem({ entry }) {
-  const [showDetail, setShowDetail] = useState(false);
+export function ListItem({
+  entry,
+  isExpanded,
+  setExpandedItemId,
+  onDeleteItem,
+}) {
   function handleClick() {
-    setShowDetail(!showDetail);
+    setExpandedItemId(isExpanded ? null : entry.id);
   }
-  let itemTitleClassName = "";
-  if (showDetail) {
-    itemTitleClassName += "item__title--highlight";
-  }
+  const itemTitleClassName = isExpanded ? "item__title--highlight" : "";
+
   return (
     <li key={entry.id} className="list-element" onClick={handleClick}>
-      {showDetail ? (
-        <ItemDetail item={entry} itemTitleClassName={itemTitleClassName} />
+      {isExpanded ? (
+        <ItemDetail
+          item={entry}
+          itemTitleClassName={itemTitleClassName}
+          onDeleteItem={onDeleteItem}
+        />
       ) : (
         <h4 className={itemTitleClassName}>{entry.name}</h4>
       )}

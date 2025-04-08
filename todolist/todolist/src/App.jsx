@@ -19,6 +19,10 @@ export function App() {
     setIsCreateClicked(true);
   }
 
+  function handleDeleteItem(itemId) {
+    setNewList((prevList) => prevList.filter((item) => item.id !== itemId));
+  }
+
   return (
     <main>
       <Header>
@@ -39,9 +43,9 @@ export function App() {
               <h2>Sidebar</h2>
             </section>
             <section className="todolist col col-8">
-              <PlanningList list={newList} />
-              <OngoingList list={newList} />
-              <FinishedList list={newList} />
+              <PlanningList list={newList} onDeleteItem={handleDeleteItem} />
+              <OngoingList list={newList} onDeleteItem={handleDeleteItem} />
+              <FinishedList list={newList} onDeleteItem={handleDeleteItem} />
             </section>
             <section className="sidebar col col-2">
               <h2>Stats</h2>

@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { ListItem } from "./ListItem";
 
-export function PlanningList({ list }) {
+export function PlanningList({ list, onDeleteItem }) {
+  const [expandedItemId, setExpandedItemId] = useState(null);
   function showList(l) {
     return (
       <ul>
         {l.map((el) => {
-          return <ListItem entry={el} />;
+          return (
+            <ListItem
+              key={`planning-${el.id}`}
+              entry={el}
+              isExpanded={expandedItemId === el.id}
+              setExpandedItemId={setExpandedItemId}
+              onDeleteItem={onDeleteItem}
+            />
+          );
         })}
       </ul>
     );
