@@ -5,17 +5,31 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 export function ItemDetail({ item, itemTitleClassName }) {
   const [onEdit, setOnEdit] = useState(false);
+  const [newTaskName, setNewTaskName] = useState(item.name);
+  const [newDueDate, setNewDueDate] = useState(item.dueDate);
+  function onChangeName(e) {
+    setNewTaskName(e.target.value);
+  }
+  function onChangeDueDate(e) {
+    setNewDueDate(e.target.value);
+  }
   function handleEditClick() {
-    setOnEdit(true);
+    setOnEdit(!onEdit);
   }
   return (
     <div className="item__detail">
       {onEdit ? (
-        <EditForm item={item} handleEditClick={handleEditClick} />
+        <EditForm
+          handleEditClick={handleEditClick}
+          newTaskName={newTaskName}
+          onChangeName={onChangeName}
+          newDueDate={newDueDate}
+          onChangeDueDate={onChangeDueDate}
+        />
       ) : (
         <>
-          <h4 className={itemTitleClassName}>{item.name}</h4>
-          <p className="item__due-date">Due date: {item.dueDate}</p>
+          <h4 className={itemTitleClassName}>{newTaskName}</h4>
+          <p className="item__due-date">Due date: {newDueDate}</p>
         </>
       )}
       {!onEdit && <ItemOperations handleEditClick={handleEditClick} />}
@@ -23,7 +37,13 @@ export function ItemDetail({ item, itemTitleClassName }) {
   );
 }
 
-export function EditForm({ item, handleEditClick }) {
+export function EditForm({
+  handleEditClick,
+  newTaskName,
+  onChangeName,
+  newDueDate,
+  onChangeDueDate,
+}) {
   return (
     <form
       className="edit-form"
@@ -37,7 +57,8 @@ export function EditForm({ item, handleEditClick }) {
           className="edit-form__input"
           id="name"
           type="text"
-          value={item.name}
+          value={newTaskName}
+          onChange={onChangeName}
         />
       </div>
       <div className="edit-form__group">
@@ -46,7 +67,8 @@ export function EditForm({ item, handleEditClick }) {
           className="edit-form__input"
           id="date"
           type="date"
-          value={new Date(item.dueDate).toISOString().split("T")[0]}
+          value={new Date(newDueDate).toISOString().split("T")[0]}
+          onChange={onChangeDueDate}
         />
       </div>
       <ItemOperations handleEditClick={handleEditClick} isOnEdit={true} />
