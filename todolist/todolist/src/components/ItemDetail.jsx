@@ -20,10 +20,13 @@ export function ItemDetail({ item, itemTitleClassName }) {
     <div className="item__detail">
       {onEdit ? (
         <EditForm
+          item={item}
           handleEditClick={handleEditClick}
           newTaskName={newTaskName}
+          setNewTaskName={setNewTaskName}
           onChangeName={onChangeName}
           newDueDate={newDueDate}
+          setNewDueDate={setNewDueDate}
           onChangeDueDate={onChangeDueDate}
         />
       ) : (
@@ -38,10 +41,13 @@ export function ItemDetail({ item, itemTitleClassName }) {
 }
 
 export function EditForm({
+  item,
   handleEditClick,
   newTaskName,
+  setNewTaskName,
   onChangeName,
   newDueDate,
+  setNewDueDate,
   onChangeDueDate,
 }) {
   return (
@@ -71,12 +77,24 @@ export function EditForm({
           onChange={onChangeDueDate}
         />
       </div>
-      <ItemOperations handleEditClick={handleEditClick} isOnEdit={true} />
+      <ItemOperations
+        item={item}
+        handleEditClick={handleEditClick}
+        resetName={setNewTaskName}
+        resetDate={setNewDueDate}
+        isOnEdit={true}
+      />
     </form>
   );
 }
 
-export function ItemOperations({ handleEditClick, isOnEdit = false }) {
+export function ItemOperations({
+  item,
+  handleEditClick,
+  resetName,
+  resetDate,
+  isOnEdit = false,
+}) {
   return (
     <div className="item__operations">
       <button
@@ -90,13 +108,27 @@ export function ItemOperations({ handleEditClick, isOnEdit = false }) {
         {isOnEdit ? "Save" : "Edit"}
         <FontAwesomeIcon icon={faPen} size="sm" style={{ color: "#ffffff" }} />
       </button>
-      <button className="item-btn item__delete-btn">
-        Delete
-        <FontAwesomeIcon
-          icon={faTrash}
-          size="sm"
-          style={{ color: "#ffffff" }}
-        />
+      <button
+        className="item-btn item__delete-btn"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (isOnEdit) {
+            resetName(item.name);
+            resetDate(item.dueDate);
+            handleEditClick();
+          } else {
+          }
+        }}
+      >
+        {isOnEdit ? "Cancel" : "Delete"}
+        {!isOnEdit && (
+          <FontAwesomeIcon
+            icon={faTrash}
+            size="sm"
+            style={{ color: "#ffffff" }}
+          />
+        )}
       </button>
     </div>
   );
