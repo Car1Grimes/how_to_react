@@ -3,6 +3,7 @@ import EmojiPicker from "emoji-picker-react";
 import { Theme } from "emoji-picker-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 export default function App() {
   const [theme, setTheme] = useState("light");
@@ -13,7 +14,7 @@ export default function App() {
   let themeIconColor = "";
   let editorOuterBg = "rounded-lg shadow-inner p-6";
   let editorInnerBg =
-    "w-full h-full p-5 rounded-md resize-none outline-none focus:ring-2 focus:ring-blue-500";
+    "text-3xl w-full h-full p-5 rounded-md resize-none outline-none focus:ring-2 focus:ring-blue-500";
   if (theme === "dark") {
     pageBgClassName += " bg-gray-900 text-white";
     titleClassName += " bg-gray-800";
@@ -27,6 +28,25 @@ export default function App() {
     editorInnerBg += " bg-white";
     themeIconColor += "#033792";
   }
+
+  const handleEmojiClick = (emojiData) => {
+    const { emoji } = emojiData;
+
+    navigator.clipboard.writeText(emoji).then(() => {
+      toast.success("Copied to clipboard!", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      });
+    });
+  };
+
   return (
     <>
       <div className={pageBgClassName}>
@@ -50,7 +70,12 @@ export default function App() {
         </div>
         <div className="grid grid-cols-2 gap-6 px-4 py-4 h-10/12">
           <div className="flex justify-center items-center bg-amber-50 rounded-lg overflow-scroll">
-            <EmojiPicker theme={theme} width="100%" height="100%" />
+            <EmojiPicker
+              onEmojiClick={handleEmojiClick}
+              theme={theme}
+              width="100%"
+              height="100%"
+            />
           </div>
           <div className={editorOuterBg}>
             <textarea
@@ -60,6 +85,7 @@ export default function App() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }
