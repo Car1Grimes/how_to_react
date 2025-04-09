@@ -34,3 +34,8 @@ Integrated with `react-toastify` to display a toast when an emoji is copied.
 - **Tailwind CSS** – For responsive layout and styling
 
 ---
+
+## Demo
+
+![Light mode](./public/demo1.png)
+![Dark mode](./public/demo2.png)
