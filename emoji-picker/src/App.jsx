@@ -1,3 +1,4 @@
+// vim: set ts=2 sw=2 expandtab:
 import { useState } from "react";
 import EmojiPicker from "emoji-picker-react";
 import { Theme } from "emoji-picker-react";
