@@ -10,19 +10,31 @@ export default function App() {
   const handleChangeTab = (tabName) => {
     setCurrentTab(tabName);
   };
+  const tabs = [
+    "Home",
+    "Introduction",
+    "Basics",
+    "Practice",
+    "Projects",
+    "Resources",
+    "Community",
+    "Progress",
+  ];
   return (
     <>
       <Header />
       <TabSection>
         <TabHeaderRow>
-          <TabHeader name="Home" handleClick={handleChangeTab} />
-          <TabHeader name="Introduction" handleClick={handleChangeTab} />
-          <TabHeader name="Basics" handleClick={handleChangeTab} />
-          <TabHeader name="Practice" handleClick={handleChangeTab} />
-          <TabHeader name="Projects" handleClick={handleChangeTab} />
-          <TabHeader name="Resources" handleClick={handleChangeTab} />
-          <TabHeader name="Community" handleClick={handleChangeTab} />
-          <TabHeader name="Progress" handleClick={handleChangeTab} />
+          {tabs.map((tab) => {
+            return (
+              <TabHeader
+                key={tab}
+                name={tab}
+                isActive={currentTab === tab}
+                handleClick={handleChangeTab}
+              />
+            );
+          })}
         </TabHeaderRow>
         <TabContent currentTab={currentTab} />
       </TabSection>
