@@ -1,9 +1,7 @@
-export function TabHeader({ name }) {
+export function TabHeader({ name, handleClick }) {
   return (
-    <div>
-      <h2 className="font-bold p-4 italic border-gray-300 text-gray-500 text-xl text-center">
-        {name}
-      </h2>
+    <div className="" onClick={() => handleClick(name)}>
+      <h3 className="font-bold italic text-xl text-gray-500 p-5">{name}</h3>
     </div>
   );
 }
