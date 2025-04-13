@@ -1,12 +1,34 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Simple Tabs 🗂️
 
-Currently, two official plugins are available:
+A clean and responsive React component that allows users to switch between multiple tabs and view content dynamically based on the active tab.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Tabbed Navigation**: Easily switch between 8 predefined tabs.
+- **Dynamic Content Rendering**: Each tab displays its own unique content.
+- **Active Tab Highlighting**: Visually indicates which tab is currently active.
+- **Component-Based Structure**: Clean separation of concerns using React components.
+
+---
+
+## 🧪 How It Works
+
+The interface consists of:
+- A **tab header row** with clickable tab buttons.
+- A **content area** that changes based on the active tab.
+
+When a tab is clicked:
+1. The `currentTab` state is updated.
+2. The corresponding component from `tabContentMap` is rendered.
+3. The clicked tab is visually highlighted to indicate it’s active.
+
+---
+
+## 🖼 Demo
+
+![](./public/demo.png)
+
+

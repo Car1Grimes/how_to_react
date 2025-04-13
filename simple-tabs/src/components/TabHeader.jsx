@@ -1,7 +1,7 @@
 //
 export function TabHeader({ name, handleClick, isActive }) {
   let headerClassName =
-    "w-full border border-gray-400 font-bold italic text-xl p-5 text-center";
+    "w-full cursor-pointer border border-gray-400 font-bold italic text-xl p-5 text-center";
   if (isActive) {
     headerClassName += " dark:text-sky-400 border-b-0";
   } else {
