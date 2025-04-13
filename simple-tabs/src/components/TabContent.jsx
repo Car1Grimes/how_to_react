@@ -19,5 +19,9 @@ export function TabContent({ currentTab }) {
     Community: <CommunityContent />,
     Progress: <ProgressContent />,
   };
-  return <div className="w-screen p-6">{tabContentMap[currentTab]}</div>;
+  return (
+    <div className="w-full p-6 border-l border-r border-b border-l-gray-400 border-r-gray-400 border-b-gray-400">
+      {tabContentMap[currentTab]}
+    </div>
+  );
 }
