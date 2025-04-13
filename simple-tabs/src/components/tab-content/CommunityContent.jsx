@@ -1,3 +1,10 @@
+//
+//
+import { TabContentTitle } from "../common/TabContentTitle";
 export function CommunityContent() {
-  return <div>Community</div>;
+  return (
+    <div>
+      <TabContentTitle name="Community" />
+    </div>
+  );
 }

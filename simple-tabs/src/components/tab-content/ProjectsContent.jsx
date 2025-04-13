@@ -1,3 +1,9 @@
+//
+import { TabContentTitle } from "../common/TabContentTitle";
 export function ProjectsContent() {
-  return <div>Projects</div>;
+  return (
+    <div>
+      <TabContentTitle name="Projects" />
+    </div>
+  );
 }

@@ -5,21 +5,13 @@ import { TabSection } from "./components/TabSection";
 import { TabHeaderRow } from "./components/TabHeaderRow";
 import { TabHeader } from "./components/TabHeader";
 import { TabContent } from "./components/TabContent";
+import { tabs } from "./data/tabs";
 export default function App() {
   const [currentTab, setCurrentTab] = useState("Home");
   const handleChangeTab = (tabName) => {
     setCurrentTab(tabName);
   };
-  const tabs = [
-    "Home",
-    "Introduction",
-    "Basics",
-    "Practice",
-    "Projects",
-    "Resources",
-    "Community",
-    "Progress",
-  ];
+
   return (
     <>
       <Header />

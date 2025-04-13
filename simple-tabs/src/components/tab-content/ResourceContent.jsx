@@ -1,3 +1,10 @@
+//
+//
+import { TabContentTitle } from "../common/TabContentTitle";
 export function ResourceContent() {
-  return <div>Resources</div>;
+  return (
+    <div>
+      <TabContentTitle name="Resources" />
+    </div>
+  );
 }

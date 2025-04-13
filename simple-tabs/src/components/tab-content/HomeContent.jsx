@@ -1,7 +1,8 @@
+import { TabContentTitle } from "../common/TabContentTitle";
 export function HomeContent() {
   return (
-    <div>
-      <h4>Home</h4>
+    <div className="">
+      <TabContentTitle name="Home" />
     </div>
   );
 }
